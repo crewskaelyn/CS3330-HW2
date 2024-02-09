@@ -48,6 +48,7 @@ public class Student {
 	public String toString() {
 		return "Name: " + name +
 				"\nID: "  + id +
-				"\nGrade :" + grade;
+				"\nGrade :" + grade +
+				"\n-----------------";
 	}
 }
