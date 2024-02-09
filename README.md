@@ -1,3 +1,4 @@
 # CS3330-HW2
 
-This is a test.
+Homework 2 for Object Oriented Programming
+Team L
