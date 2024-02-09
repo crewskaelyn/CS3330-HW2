@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 public class StudentManager {
 	//Array called Student
 	private Student[] students;
-	
 	public boolean readFromFile(String fileName) {
 	    try {
 	    	// Takes the fileName variable and attached it to 'file'. 
@@ -72,10 +71,21 @@ public class StudentManager {
                     displayStudents();
                     break;
                 case 2:
+                	 System.out.println("Enter student ID:");
+                	 int searchID = scanner.nextInt();
+                	 boolean found = searchStudentById(searchID);
                     //searchStudentById();
                     break;
                 case 3:
-                    //updateStudentGradeById();
+                	System.out.println("Enter student ID");
+                	int updateId = scanner.nextInt();
+                	System.out.println("Enter new grade");
+                	double grade = scanner.nextDouble();
+                	boolean updated = updateStudentGradeById(updateId, grade );
+                	if (!updated) {
+                		System.out.println("Student not found.");
+                	}
+                	//updateStudentGradeById();
                     break;
                 case 4:
                     exit = true;
@@ -100,16 +110,49 @@ public class StudentManager {
 			
 	}
 	
-	//public boolean searchStudentById(int id)
-	//public boolean updateStudentGradeById(int id, double grade)
+	
+	public boolean searchStudentById(int id) {
+		if (students == null || students.length == 0) {
+			System.out.println("No Students Found.");
+			return false;
+		}
+		
+		for (Student student : students) {
+			if (student.getId() == id) {
+				System.out.println("Student found: ");
+				System.out.println(student);
+				return true;
+			}
+		}
+		
+		System.out.println("Student with ID" + id + "not found.");
+		return false;
+	}
+
+	public boolean updateStudentGradeById(int id, double grade) {
+		if (students == null || students.length == 0) {
+			System.out.println("No Students found.");
+			return false;
+		}
+		
+		for (Student student : students) {
+			if (student.getId() == id) {
+				student.setGrade(grade);
+				System.out.println("Student grade updated:");
+				System.out.println(student);
+				return true;
+			}
+		}
+		System.out.println("Student with ID" + id + "not found.");
+		return false;
+	}
 	
 	
 	// MAIN
 	public static void main(String[] args) {
 	    StudentManager studentManager = new StudentManager();
 	    boolean fileReadStatus = studentManager.readFromFile("src/studentData.txt");
-	    studentManager.displayMenu();
-	          
+	    studentManager.displayMenu();      
 	    }
 	
 	
