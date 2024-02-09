@@ -153,7 +153,7 @@ public class StudentManager {
 	    StudentManager studentManager = new StudentManager();
 	    boolean fileReadStatus = studentManager.readFromFile("src/studentData.txt");
 	    studentManager.displayMenu();      
-	    }
+	}
 	
 	
 }
