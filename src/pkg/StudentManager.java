@@ -69,7 +69,7 @@ public class StudentManager {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    //displayStudents();
+                    displayStudents();
                     break;
                 case 2:
                     //searchStudentById();
@@ -89,7 +89,17 @@ public class StudentManager {
         scanner.close();
     }
 	
-	//public void displayStudents()
+	public void displayStudents() {
+		if (students == null || students.length == 0) {
+			System.out.println("No students found.");
+			return;
+		}
+		for (Student student : students) {
+			System.out.println(student);
+		}
+			
+	}
+	
 	//public boolean searchStudentById(int id)
 	//public boolean updateStudentGradeById(int id, double grade)
 	
