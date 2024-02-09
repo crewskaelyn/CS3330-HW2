@@ -46,8 +46,8 @@ public class Student {
 	
 	//method to display student information
 	public String toString() {
-		return "Name:" + name +
-				"ID:"  + id +
-				"Grade:" + grade;
+		return "Name: " + name +
+				"\nID: "  + id +
+				"\nGrade :" + grade;
 	}
 }
